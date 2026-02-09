@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Razorpay Clone</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+    body{background:#f5f8ff;color:#1a1a1a}
+
+    /* NAVBAR */
+    header{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:100}
+    .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .logo{font-size:22px;font-weight:700;color:#2b4cff}
+    .menu a{margin:0 12px;text-decoration:none;color:#333;font-size:14px}
+    .actions button{padding:8px 16px;border-radius:6px;border:none;cursor:pointer;font-size:14px}
+    .login{background:#fff;border:1px solid #2b4cff;color:#2b4cff}
+    .signup{background:#2b4cff;color:#fff;margin-left:10px}
+
+    /* HERO */
+    .hero{max-width:1200px;margin:60px auto;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:0 20px}
+    .hero h1{font-size:46px;line-height:1.2;margin-bottom:20px}
+    .hero h1 span{color:#2b4cff}
+    .hero p{font-size:16px;margin-bottom:24px;color:#555}
+    .hero .btn{padding:14px 28px;border-radius:8px;background:#2b4cff;color:#fff;border:none;font-size:16px;cursor:pointer}
+    .hero img{width:100%;border-radius:14px}
+
+/* STATIC CONTAINER */
+.brands{
+  background:#fff;
+  padding:30px 0;
+}
+
+/* MASKED VIEWPORT */
+.brand-slider{
+  width:100%;
+  overflow:hidden;
+}
+
+/* ONLY THIS MOVES */
+.brand-track{
+  display:flex;
+  width:fit-content;
+  animation: marquee 24s linear infinite;
+}
+
+/* BRAND STYLE */
+.brand-track span{
+  margin-right:60px;
+  font-size:16px;
+  font-weight:600;
+  color:#666;
+  white-space:nowrap;
+}
+
+/* MOTION */
+@keyframes marquee{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
+}
+
+
+
+    /* GLOBAL PAYMENTS */
+    .global{max-width:1200px;margin:60px auto;background:linear-gradient(135deg,#7b0000,#c10000);border-radius:18px;display:grid;grid-template-columns:1fr 1fr;align-items:center;color:#fff;overflow:hidden}
+    .global .text{padding:50px}
+    .global h2{font-size:38px;margin-bottom:20px}
+    .global button{padding:12px 24px;border:none;border-radius:6px;background:#fff;color:#2b4cff;font-weight:600;cursor:pointer}
+    .global img{width:100%;height:100%;object-fit:cover}
+
+    /* FEATURES */
+    .features{max-width:1200px;margin:80px auto;padding:0 20px}
+    .features h2{text-align:center;font-size:36px;margin-bottom:50px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+    .card{background:#fff;padding:30px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    .card h3{margin-bottom:12px}
+    .card p{color:#555;font-size:14px}
+
+    /* FOOTER */
+    footer{background:#0b1c2d;color:#fff;padding:50px 20px;margin-top:80px}
+    footer div{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px}
+    footer h4{margin-bottom:12px}
+    footer p,footer a{font-size:13px;color:#ccc;text-decoration:none;display:block;margin-bottom:6px}
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .global{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Razorpay</div>
+    <nav class="menu">
+      <a href="#">Payments</a>
+      <a href="#">Banking+</a>
+      <a href="#">Payroll</a>
+      <a href="#">Partners</a>
+      <a href="#">Resources</a>
+      <a href="#">Pricing</a>
+    </nav>
+    <div class="actions">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1><span>Advanced Payment Solutions</span><br>for India's boldest disruptors</h1>
+    <p>100+ payment methods | Easy integration | Powerful dashboard</p>
+    <button class="btn">Sign Up Now</button>
+  </div>
+ <img src="hero.svg" alt="Hero Illustration">
+
+</section>
+
+<section class="brands">
+  <div class="brand-slider">
+    <div class="brand-track">
+      <span>OLA</span><span>Zomato</span><span>Blinkit</span><span>Zepto</span><span>Swiggy</span><span>Lenskart</span><span>Nykaa</span>
+      <span>OLA</span><span>Zomato</span><span>Blinkit</span><span>
+
+<section class="global">
+  <div class="text">
+    <h2>Accept payments in 130+ currencies.<br>Go global today!</h2>
+    <button>Accept International Payments</button>
+  </div>
+  <img src="global-payments.svg" alt="Global Payments">
+
+</section>
+
+<section class="features">
+  <h2>Why Razorpay</h2>
+  <div class="grid">
+    <div class="card"><h3>Fast Onboarding</h3><p>Get started in minutes with simple KYC.</p></div>
+    <div class="card"><h3>Secure Payments</h3><p>Enterprise-grade security and compliance.</p></div>
+    <div class="card"><h3>Developer Friendly</h3><p>Clean APIs and detailed documentation.</p></div>
+    <div class="card"><h3>Global Reach</h3><p>Accept payments worldwide with ease.</p></div>
+  </div>
+</section>
+
+<!-- PAYMENT PRODUCTS -->
+<section class="features">
+  <h2>Explore Our Payment Suite</h2>
+  <div class="grid">
+    <div class="card"><h3>Payment Gateway</h3><p>Accept cards, UPI, wallets and netbanking with high success rates.</p></div>
+    <div class="card"><h3>Subscription Billing</h3><p>Automate recurring payments with smart retries and analytics.</p></div>
+    <div class="card"><h3>Smart Collect</h3><p>Track and reconcile incoming payments easily.</p></div>
+    <div class="card"><h3>Route</h3><p>Split settlements instantly between vendors and partners.</p></div>
+  </div>
+</section>
+
+<!-- BANKING SECTION -->
+<section class="global" style="background:linear-gradient(135deg,#0b1c2d,#133a63)">
+  <div class="text">
+    <h2>Banking for Modern Businesses</h2>
+    <p style="margin-bottom:20px">Open current accounts, manage payouts, and control cash flow from one dashboard.</p>
+    <button>Explore Banking+</button>
+  </div>
+  <img src="global-payments.svg" alt="banking">
+</section>
+
+<!-- DEVELOPER SECTION -->
+<section class="features">
+  <h2>Built for Developers</h2>
+  <div class="grid">
+    <div class="card"><h3>Clean APIs</h3><p>Simple REST APIs with detailed documentation.</p></div>
+    <div class="card"><h3>SDKs</h3><p>Ready-to-use SDKs for web and mobile platforms.</p></div>
+    <div class="card"><h3>Webhooks</h3><p>Real-time payment status updates.</p></div>
+    <div class="card"><h3>Sandbox</h3><p>Test integrations safely before going live.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="features">
+  <h2>Trusted by 10M+ Businesses</h2>
+  <div class="grid">
+    <div class="card"><p>“Razorpay helped us scale payments without friction.”</p><strong>- Startup Founder</strong></div>
+    <div class="card"><p>“Fast onboarding and excellent support.”</p><strong>- E-commerce Brand</strong></div>
+    <div class="card"><p>“Best developer experience we’ve seen.”</p><strong>- Tech Lead</strong></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="global" style="margin-bottom:80px">
+  <div class="text">
+    <h2>Start Accepting Payments Today</h2>
+    <p style="margin-bottom:20px">Create an account and go live in minutes.</p>
+    <button>Get Started</button>
+  </div>
+  <img src="hero.svg" alt="cta">
+</section>
+
+<footer>
+  <div>
+    <div>
+      <h4>Razorpay</h4>
+      <p>India's leading payments platform.</p>
+    </div>
+    <div>
+      <h4>Products</h4>
+      <a href="#">Payments</a><a href="#">Banking+</a><a href="#">Payroll</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.signup').onclick=()=>alert('Demo clone only. No real payments.')
+</script>
+
+</body>
+</html>
