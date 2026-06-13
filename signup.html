@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merchant Sign Up - Razorpay Clone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #f8faff;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      color: #0d1e3d;
+    }
+    
+    /* SPLIT CONTAINER */
+    .split-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* LEFT SIDE: BRAND INFO */
+    .brand-side {
+      flex: 1.2;
+      background: linear-gradient(135deg, #061025, #0b224e);
+      color: #fff;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .brand-side::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(11,114,231,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .brand-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: #0b72e7;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .brand-content h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 40px;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    .brand-content h1 span {
+      color: #0b72e7;
+    }
+    .features-list {
+      list-style: none;
+      margin-top: 40px;
+    }
+    .features-list li {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      color: #b0c4de;
+    }
+    .features-list li .icon {
+      background: rgba(11, 114, 231, 0.15);
+      color: #0b72e7;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .brand-footer {
+      color: #627d98;
+      font-size: 13px;
+    }
+
+    /* RIGHT SIDE: FORM */
+    .form-side {
+      flex: 1;
+      background: #fff;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-y: auto;
+    }
+    .form-container {
+      max-width: 420px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .form-header {
+      margin-bottom: 30px;
+    }
+    .form-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #0d1e3d;
+      margin-bottom: 8px;
+    }
+    .form-header p {
+      color: #627d98;
+      font-size: 15px;
+    }
+    
+    .input-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #486581;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1.5px solid #d9e2ec;
+      outline: none;
+      font-size: 15px;
+      transition: all 0.2s;
+      color: #0d1e3d;
+      background: #f8faff;
+    }
+    .input-group input:focus {
+      border-color: #0b72e7;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(11, 114, 231, 0.1);
+    }
+    
+    .terms-box {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: #486581;
+      cursor: pointer;
+      line-height: 1.4;
+    }
+    .terms-box input {
+      margin-top: 3px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .terms-box a {
+      color: #0b72e7;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .terms-box a:hover {
+      text-decoration: underline;
+    }
+    
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: #0b72e7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(11,114,231,0.2);
+      transition: all 0.2s;
+      font-family: 'Outfit', sans-serif;
+    }
+    .btn-submit:hover {
+      background: #0a61c5;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(11,114,231,0.3);
+    }
+    
+    .social-login {
+      margin-top: 24px;
+      text-align: center;
+    }
+    .social-divider {
+      position: relative;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .social-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background: #f0f4f8;
+      z-index: 1;
+    }
+    .social-divider span {
+      background: #fff;
+      padding: 0 16px;
+      font-size: 13px;
+      color: #9fb3c8;
+      position: relative;
+      z-index: 2;
+    }
+    .btn-social {
+      width: 100%;
+      padding: 12px;
+      border: 1.5px solid #d9e2ec;
+      border-radius: 8px;
+      background: #fff;
+      color: #486581;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .btn-social:hover {
+      background: #f8faff;
+      border-color: #bcccdc;
+    }
+    .btn-social svg {
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+    }
+    
+    .form-footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 14px;
+      color: #627d98;
+    }
+    .form-footer a {
+      color: #0b72e7;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+    
+    /* RESPONSIVE */
+    @media(max-width: 900px) {
+      body {
+        overflow-y: auto;
+        height: auto;
+      }
+      .split-container {
+        flex-direction: column;
+      }
+      .brand-side {
+        padding: 40px;
+        min-height: auto;
+      }
+      .brand-content h1 {
+        font-size: 30px;
+      }
+      .brand-content p, .features-list {
+        display: none;
+      }
+      .form-side {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="split-container">
+  <!-- LEFT BRANDING SIDE -->
+  <div class="brand-side">
+    <div class="brand-logo" onclick="window.location.href='index.html'">Razorpay</div>
+    
+    <div class="brand-content">
+      <h1>Activate your account in <span>less than 5 minutes</span></h1>
+      <p style="color: #9fb3c8; font-size: 16px;">Set up paperless onboarding, generate quick billing pages, and accept international currencies immediately.</p>
+      
+      <ul class="features-list">
+        <li>
+          <span class="icon">✓</span>
+          Completely paperless digital onboarding process
+        </li>
+        <li>
+          <span class="icon">✓</span>
+          Test payment flows inside our sandbox gateway model
+        </li>
+        <li>
+          <span class="icon">✓</span>
+          Customizable payout schedules and billing structures
+        </li>
+      </ul>
+    </div>
+    
+    <div class="brand-footer">
+      © Razorpay Clone. Built for demonstration and practice.
+    </div>
+  </div>
+
+  <!-- RIGHT FORM SIDE -->
+  <div class="form-side">
+    <div class="form-container">
+      <div class="form-header">
+        <h2>Create Account</h2>
+        <p>Get started with India's most popular payment gateway</p>
+      </div>
+
+      <form id="signupForm" onsubmit="return handleSignup(event)">
+        <div class="input-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="e.g. Rahul Sharma" required>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Work Email</label>
+          <input type="text" id="email" placeholder="e.g. merchant@company.com" required>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Must be at least 6 characters" required>
+        </div>
+
+        <label class="terms-box">
+          <input type="checkbox" id="terms" required>
+          <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> of the Razorpay Clone.</span>
+        </label>
+
+        <button type="submit" class="btn-submit">Create Merchant Account</button>
+      </form>
+
+      <div class="social-login">
+        <div class="social-divider">
+          <span>OR SIGN UP WITH</span>
+        </div>
+        <button class="btn-social" onclick="window.location.href='dashboard.html'">
+          <!-- Google Icon SVG -->
+          <svg viewBox="0 0 24 24">
+            <path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114A5.69 5.69 0 0 1 8.24 12.8a5.69 5.69 0 0 1 5.751-5.714c2.25 0 4.12 1.34 4.98 3.257l3.7-2.871C20.67 4.385 16.79 2.057 12.24 2.057a10.66 10.66 0 0 0-10.74 10.743c0 5.92 4.81 10.743 10.74 10.743 6.13 0 10.9-4.329 10.9-10.743 0-.686-.06-1.337-.18-1.954H12.24Z"/>
+          </svg>
+          Sign Up with Google Business
+        </button>
+      </div>
+
+      <div class="form-footer">
+        Already have a merchant account? <a href="login.html">Sign In</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function handleSignup(event) {
+    event.preventDefault();
+    const fullName = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const terms = document.getElementById("terms").checked;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (fullName === "" || email === "" || password === "") {
+      alert("Please fill out all required fields.");
+      return false;
+    }
+
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address.");
+      return false;
+    }
+
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters long.");
+      return false;
+    }
+
+    if (!terms) {
+      alert("You must agree to the Terms of Service and Privacy Policy.");
+      return false;
+    }
+
+    // Save details in localStorage
+    localStorage.setItem("merchantEmail", email);
+    localStorage.setItem("merchantName", fullName);
+
+    alert("Registration successful! Welcome to your merchant dashboard.");
+    window.location.href = "dashboard.html";
+    return true;
+  }
+</script>
+
+</body>
+</html>

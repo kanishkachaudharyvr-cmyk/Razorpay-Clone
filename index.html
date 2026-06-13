@@ -4,18 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Razorpay Clone</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-    body{background:#f5f8ff;color:#1a1a1a}
+    html { scroll-behavior: smooth; }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+    body{background:#f8faff;color:#0d1e3d;line-height:1.6}
+    h1, h2, h3, h4, h5, h6, .logo, .btn, .actions button, .global button, .card h3 {
+      font-family: 'Outfit', sans-serif;
+    }
 
     /* NAVBAR */
-    header{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:100}
-    .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-    .logo{font-size:22px;font-weight:700;color:#2b4cff}
-    .menu a{margin:0 12px;text-decoration:none;color:#333;font-size:14px}
-    .actions button{padding:8px 16px;border-radius:6px;border:none;cursor:pointer;font-size:14px}
-    .login{background:#fff;border:1px solid #2b4cff;color:#2b4cff}
-    .signup{background:#2b4cff;color:#fff;margin-left:10px}
+    header{background:#fff;box-shadow:0 4px 20px rgba(11, 114, 231, 0.05);position:sticky;top:0;z-index:100}
+    .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
+    .logo{font-size:24px;font-weight:800;color:#0b72e7;letter-spacing:-0.5px;cursor:pointer}
+    .menu a{margin:0 14px;text-decoration:none;color:#2c3e50;font-size:15px;font-weight:500;transition:color 0.2s}
+    .menu a:hover{color:#0b72e7}
+    .actions button{padding:10px 20px;border-radius:6px;border:none;cursor:pointer;font-size:15px;font-weight:600;transition:all 0.2s}
+    .login{background:#fff;border:1.5px solid #0b72e7;color:#0b72e7}
+    .login:hover{background:rgba(11,114,231,0.05);transform:translateY(-1px)}
+    .signup{background:#0b72e7;color:#fff;margin-left:12px;box-shadow:0 4px 14px rgba(11,114,231,0.3)}
+    .signup:hover{background:#0a61c5;transform:translateY(-1px);box-shadow:0 6px 20px rgba(11,114,231,0.4)}
 
     /* HERO */
     .hero{max-width:1200px;margin:60px auto;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:0 20px}
@@ -86,9 +97,78 @@
     footer h4{margin-bottom:12px}
     footer p,footer a{font-size:13px;color:#ccc;text-decoration:none;display:block;margin-bottom:6px}
 
+    /* Hover effect upgrades */
+    .card{background:#fff;padding:30px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.04);border:1px solid #eef2f9;transition:all 0.3s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(11,114,231,0.08);border-color:#d4e6fc}
+    
+    .hero .btn{padding:14px 28px;border-radius:8px;background:#0b72e7;color:#fff;border:none;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 6px 20px rgba(11,114,231,0.35);transition:all 0.2s}
+    .hero .btn:hover{background:#0a61c5;transform:translateY(-2px);box-shadow:0 8px 25px rgba(11,114,231,0.45)}
+    .hero img{width:100%;border-radius:14px;transition:transform 0.5s}
+    .hero img:hover{transform:scale(1.02)}
+
+    .global button{padding:12px 24px;border:none;border-radius:6px;background:#fff;color:#0b72e7;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:all 0.2s}
+    .global button:hover{background:#f5f8ff;transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.15)}
+
+    /* PRICING PLANS */
+    .pricing-plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .price-card {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      transition: all 0.3s;
+      position: relative;
+    }
+    .price-card.featured {
+      border: 2px solid #0b72e7;
+      transform: scale(1.03);
+      box-shadow: 0 15px 35px rgba(11,114,231,0.1);
+    }
+    .price-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0b72e7;
+      color: #fff;
+      padding: 4px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+    .price-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(11,114,231,0.08);
+    }
+    .price-card.featured:hover {
+      transform: scale(1.03) translateY(-5px);
+    }
+    .price-card h3 { font-size: 22px; margin-bottom: 15px; color: #0d1e3d; }
+    .price-card .price { font-size: 44px; font-weight: 800; color: #0b72e7; margin-bottom: 10px; }
+    .price-card .price span { font-size: 16px; font-weight: 500; color: #7f8c8d; }
+    .price-card p { font-size: 14px; color: #7f8c8d; margin-bottom: 25px; min-height: 48px; }
+    .price-card ul { list-style: none; padding: 0; margin-bottom: 30px; text-align: left; }
+    .price-card ul li { padding: 10px 0; font-size: 14px; color: #2c3e50; border-bottom: 1px dashed #f2f5fa; display: flex; align-items: center; }
+    .price-card ul li::before { content: '✓'; color: #0b72e7; font-weight: bold; margin-right: 10px; }
+    .price-card button { width: 100%; padding: 12px; border-radius: 8px; border: 1.5px solid #0b72e7; background: #fff; color: #0b72e7; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .price-card button:hover { background: #0b72e7; color: #fff; box-shadow: 0 4px 12px rgba(11,114,231,0.25); }
+    .price-card.featured button { background: #0b72e7; color: #fff; border: none; }
+    .price-card.featured button:hover { background: #0a61c5; box-shadow: 0 6px 18px rgba(11,114,231,0.35); }
+
     @media(max-width:900px){
       .hero{grid-template-columns:1fr}
       .global{grid-template-columns:1fr}
+      .price-card.featured { transform: none; }
+      .price-card.featured:hover { transform: translateY(-5px); }
     }
   </style>
 </head>
@@ -96,18 +176,17 @@
 
 <header>
   <div class="nav">
-    <div class="logo">Razorpay</div>
+    <div class="logo" onclick="window.location.href='index.html'">Razorpay</div>
     <nav class="menu">
-      <a href="#">Payments</a>
-      <a href="#">Banking+</a>
-      <a href="#">Payroll</a>
-      <a href="#">Partners</a>
-      <a href="#">Resources</a>
-      <a href="#">Pricing</a>
+      <a href="#payments">Payments</a>
+      <a href="#banking">Banking+</a>
+      <a href="#why-razorpay">Why Razorpay</a>
+      <a href="#developers">Developers</a>
+      <a href="#pricing">Pricing</a>
     </nav>
     <div class="actions">
-      <button class="login">Login</button>
-      <button class="signup">Sign Up</button>
+      <button class="login" onclick="window.location.href='login.html'">Login</button>
+      <button class="signup" onclick="window.location.href='signup.html'">Sign Up</button>
     </div>
   </div>
 </header>
@@ -116,7 +195,7 @@
   <div>
     <h1><span>Advanced Payment Solutions</span><br>for India's boldest disruptors</h1>
     <p>100+ payment methods | Easy integration | Powerful dashboard</p>
-    <button class="btn">Sign Up Now</button>
+    <button class="btn" onclick="window.location.href='signup.html'">Sign Up Now</button>
   </div>
  <img src="hero.svg" alt="Hero Illustration">
 
@@ -134,13 +213,13 @@
 <section class="global">
   <div class="text">
     <h2>Accept payments in 130+ currencies.<br>Go global today!</h2>
-    <button>Accept International Payments</button>
+    <button onclick="window.location.href='signup.html'">Accept International Payments</button>
   </div>
   <img src="global-payments.svg" alt="Global Payments">
 
 </section>
 
-<section class="features">
+<section class="features" id="why-razorpay">
   <h2>Why Razorpay</h2>
   <div class="grid">
     <div class="card"><h3>Fast Onboarding</h3><p>Get started in minutes with simple KYC.</p></div>
@@ -151,7 +230,7 @@
 </section>
 
 <!-- PAYMENT PRODUCTS -->
-<section class="features">
+<section class="features" id="payments">
   <h2>Explore Our Payment Suite</h2>
   <div class="grid">
     <div class="card"><h3>Payment Gateway</h3><p>Accept cards, UPI, wallets and netbanking with high success rates.</p></div>
@@ -162,23 +241,67 @@
 </section>
 
 <!-- BANKING SECTION -->
-<section class="global" style="background:linear-gradient(135deg,#0b1c2d,#133a63)">
+<section class="global" id="banking" style="background:linear-gradient(135deg,#0b1c2d,#133a63)">
   <div class="text">
     <h2>Banking for Modern Businesses</h2>
     <p style="margin-bottom:20px">Open current accounts, manage payouts, and control cash flow from one dashboard.</p>
-    <button>Explore Banking+</button>
+    <button onclick="window.location.href='signup.html'">Explore Banking+</button>
   </div>
   <img src="global-payments.svg" alt="banking">
 </section>
 
 <!-- DEVELOPER SECTION -->
-<section class="features">
+<section class="features" id="developers">
   <h2>Built for Developers</h2>
   <div class="grid">
     <div class="card"><h3>Clean APIs</h3><p>Simple REST APIs with detailed documentation.</p></div>
     <div class="card"><h3>SDKs</h3><p>Ready-to-use SDKs for web and mobile platforms.</p></div>
     <div class="card"><h3>Webhooks</h3><p>Real-time payment status updates.</p></div>
     <div class="card"><h3>Sandbox</h3><p>Test integrations safely before going live.</p></div>
+  </div>
+</section>
+
+<!-- PRICING SECTION -->
+<section class="features" id="pricing">
+  <h2 style="text-align:center;">Simple, Transparent Pricing</h2>
+  <p style="text-align:center; color:#555; max-width:600px; margin:-35px auto 40px auto; font-size:16px;">Get started with industry-leading rates and robust payment infrastructure.</p>
+  <div class="pricing-plans">
+    <div class="price-card">
+      <h3>Standard</h3>
+      <div class="price">2.0%<span>/ transaction</span></div>
+      <p>Best for small startups and individual developers just getting started.</p>
+      <ul>
+        <li>Accept Cards, UPI, Netbanking</li>
+        <li>Standard settlements (T+3 days)</li>
+        <li>Standard dashboard & analytics</li>
+        <li>API sandbox testing mode</li>
+      </ul>
+      <button onclick="window.location.href='signup.html'">Sign Up Free</button>
+    </div>
+    <div class="price-card featured">
+      <h3>Pro</h3>
+      <div class="price">2.4%<span>/ transaction</span></div>
+      <p>Perfect for growing businesses needing custom integrations and faster payouts.</p>
+      <ul>
+        <li>All Standard features included</li>
+        <li>Instant settlements (T+0 available)</li>
+        <li>24/7 Priority Chat & Email Support</li>
+        <li>Custom checkout page branding</li>
+      </ul>
+      <button onclick="window.location.href='signup.html'">Get Started</button>
+    </div>
+    <div class="price-card">
+      <h3>Enterprise</h3>
+      <div class="price">Custom<span> pricing</span></div>
+      <p>For large corporations, platforms, and high-volume merchant networks.</p>
+      <ul>
+        <li>Tailored volume-based discount fees</li>
+        <li>Dedicated account success manager</li>
+        <li>99.99% API Uptime SLA guarantee</li>
+        <li>Multi-tier merchant payouts routing</li>
+      </ul>
+      <button onclick="window.location.href='signup.html'">Contact Sales</button>
+    </div>
   </div>
 </section>
 
@@ -197,7 +320,7 @@
   <div class="text">
     <h2>Start Accepting Payments Today</h2>
     <p style="margin-bottom:20px">Create an account and go live in minutes.</p>
-    <button>Get Started</button>
+    <button onclick="window.location.href='signup.html'">Get Started</button>
   </div>
   <img src="hero.svg" alt="cta">
 </section>
@@ -220,8 +343,17 @@
 </footer>
 
 <script>
-  document.querySelectorAll('button').forEach(button => {
-    button.onclick = () => alert('Demo clone only. No real payments.');
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
   });
 </script>
 
