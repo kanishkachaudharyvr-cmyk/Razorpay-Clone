@@ -11,7 +11,7 @@ A responsive, pixel-perfect frontend clone of the **Razorpay** landing page. Bui
 
 ## 🎨 Visual Preview
 
-![Razorpay Clone Banner](./clone/razorpay_clone_banner.png)
+![Razorpay Clone Banner](./razorpay_clone_banner.png)
 
 *A modern design showcasing Razorpay's iconic aesthetic, payment gateway features, and global payment dashboard UI.*
 
@@ -56,12 +56,11 @@ A responsive, pixel-perfect frontend clone of the **Razorpay** landing page. Bui
 
 ```text
 Razorpay-Clone/
-├── clone/
-│   ├── global-payments.svg       # SVG Illustration for Currencies/Banking section
-│   ├── hero.svg                  # SVG Illustration for the Hero section
-│   ├── razorpay_clone_banner.png # Generated project banner/screenshot
-│   └── razorpayclone.html        # Main HTML & CSS project file
-└── README.md                     # Documentation file
+├── global-payments.svg       # SVG Illustration for Currencies/Banking section
+├── hero.svg                  # SVG Illustration for the Hero section
+├── razorpay_clone_banner.png # Generated project banner/screenshot
+├── index.html                # Main HTML & CSS project file (previously razorpayclone.html)
+└── README.md                 # Documentation file
 ```
 
 ---
@@ -71,7 +70,7 @@ Razorpay-Clone/
 To view the landing page clone locally on your system:
 
 ### Option 1: Direct File Open
-1. Double-click the `razorpayclone.html` file in your file explorer.
+1. Double-click the `index.html` file in your file explorer.
 2. It will open directly in your preferred web browser.
 
 ### Option 2: Live Server (Recommended)
