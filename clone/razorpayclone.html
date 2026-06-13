@@ -126,6 +126,7 @@
   <div class="brand-slider">
     <div class="brand-track">
       <span>OLA</span><span>Zomato</span><span>Blinkit</span><span>Zepto</span><span>Swiggy</span><span>Lenskart</span><span>Nykaa</span>
+      <span>OLA</span><span>Zomato</span><span>Blinkit</span><span>Zepto</span><span>Swiggy</span><span>Lenskart</span><span>Nykaa</span>
     </div>
   </div>
 </section>
@@ -219,7 +220,9 @@
 </footer>
 
 <script>
-  document.querySelector('.signup').onclick=()=>alert('Demo clone only. No real payments.')
+  document.querySelectorAll('button').forEach(button => {
+    button.onclick = () => alert('Demo clone only. No real payments.');
+  });
 </script>
 
 </body>
