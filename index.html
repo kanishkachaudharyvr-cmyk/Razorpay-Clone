@@ -3,111 +3,577 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Razorpay Clone</title>
+  <title>Razorpay Clone - Powering Digital Payments</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    html { scroll-behavior: smooth; }
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-    body{background:#f8faff;color:#0d1e3d;line-height:1.6}
-    h1, h2, h3, h4, h5, h6, .logo, .btn, .actions button, .global button, .card h3 {
+    html {
+      scroll-behavior: smooth;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #f8faff;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4, h5, h6, .logo, .btn, .nav-actions button, .pricing-tab button, .price-card h3 {
       font-family: 'Outfit', sans-serif;
     }
 
-    /* NAVBAR */
-    header{background:#fff;box-shadow:0 4px 20px rgba(11, 114, 231, 0.05);position:sticky;top:0;z-index:100}
-    .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
-    .logo{font-size:24px;font-weight:800;color:#0b72e7;letter-spacing:-0.5px;cursor:pointer}
-    .menu a{margin:0 14px;text-decoration:none;color:#2c3e50;font-size:15px;font-weight:500;transition:color 0.2s}
-    .menu a:hover{color:#0b72e7}
-    .actions button{padding:10px 20px;border-radius:6px;border:none;cursor:pointer;font-size:15px;font-weight:600;transition:all 0.2s}
-    .login{background:#fff;border:1.5px solid #0b72e7;color:#0b72e7}
-    .login:hover{background:rgba(11,114,231,0.05);transform:translateY(-1px)}
-    .signup{background:#0b72e7;color:#fff;margin-left:12px;box-shadow:0 4px 14px rgba(11,114,231,0.3)}
-    .signup:hover{background:#0a61c5;transform:translateY(-1px);box-shadow:0 6px 20px rgba(11,114,231,0.4)}
+    /* GLOBAL SECTIONS */
+    section {
+      padding: 90px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
 
-    /* HERO */
-    .hero{max-width:1200px;margin:60px auto;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:0 20px}
-    .hero h1{font-size:46px;line-height:1.2;margin-bottom:20px}
-    .hero h1 span{color:#2b4cff}
-    .hero p{font-size:16px;margin-bottom:24px;color:#555}
-    .hero .btn{padding:14px 28px;border-radius:8px;background:#2b4cff;color:#fff;border:none;font-size:16px;cursor:pointer}
-    .hero img{width:100%;border-radius:14px}
+    /* HEADER */
+    header {
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(11, 114, 231, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #eef2f6;
+    }
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+    }
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0b72e7;
+      letter-spacing: -0.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .logo::after {
+      content: 'CLONE';
+      font-size: 10px;
+      background: rgba(11, 114, 231, 0.1);
+      color: #0b72e7;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 8px;
+      font-weight: 700;
+    }
+    .menu {
+      display: flex;
+      align-items: center;
+    }
+    .menu a {
+      margin: 0 16px;
+      text-decoration: none;
+      color: #486581;
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .menu a:hover {
+      color: #0b72e7;
+    }
+    .nav-actions button {
+      padding: 10px 22px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .login-btn {
+      background: #fff;
+      border: 1.5px solid #0b72e7;
+      color: #0b72e7;
+    }
+    .login-btn:hover {
+      background: rgba(11,114,231,0.05);
+      transform: translateY(-1px);
+    }
+    .signup-btn {
+      background: #0b72e7;
+      color: #fff;
+      margin-left: 12px;
+      box-shadow: 0 4px 14px rgba(11,114,231,0.25);
+    }
+    .signup-btn:hover {
+      background: #0a61c5;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(11,114,231,0.35);
+    }
 
-/* STATIC CONTAINER */
-.brands{
-  background:#fff;
-  padding:30px 0;
-}
+    /* PREMIUM HERO SECTION */
+    .hero-section {
+      background: #081125;
+      color: #fff;
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 3px solid #0b72e7;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 80% 20%, rgba(11,114,231,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .hero-text h1 {
+      font-size: 50px;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      font-weight: 800;
+    }
+    .hero-text h1 span {
+      color: #0b72e7;
+    }
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #a0aec0;
+      max-width: 520px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .hero-btn {
+      padding: 16px 32px;
+      border-radius: 8px;
+      background: #0b72e7;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(11,114,231,0.35);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+    }
+    .hero-btn:hover {
+      background: #0a61c5;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(11,114,231,0.45);
+    }
+    .hero-btn svg {
+      margin-left: 8px;
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+    .badge-list {
+      display: flex;
+      gap: 20px;
+    }
+    .badge-item {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #cbd5e0;
+    }
+    .badge-item::before {
+      content: '✓';
+      color: #2ecc71;
+      font-weight: bold;
+      margin-right: 8px;
+    }
 
-/* MASKED VIEWPORT */
-.brand-slider{
-  width:100%;
-  overflow:hidden;
-}
+    /* HERO GRAPHIC WITH FLOATING CARDS */
+    .hero-graphic-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .hero-main-img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .float-card {
+      position: absolute;
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      color: #2c3e50;
+      animation: floatAnimation 4s ease-in-out infinite;
+      z-index: 10;
+    }
+    .float-card.top-right {
+      top: 20px;
+      right: -30px;
+      animation-delay: 0s;
+    }
+    .float-card.bottom-left {
+      bottom: 40px;
+      left: -40px;
+      background: #0d1e3d;
+      color: #fff;
+      animation-delay: 2s;
+    }
+    .float-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(46, 204, 113, 0.15);
+      color: #2ecc71;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      font-weight: bold;
+    }
+    .float-card.bottom-left .float-icon {
+      background: rgba(11,114,231,0.15);
+      color: #0b72e7;
+    }
+    .float-info h5 {
+      font-size: 11px;
+      color: #7f8c8d;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .float-card.bottom-left .float-info h5 {
+      color: #a0aec0;
+    }
+    .float-info p {
+      font-weight: 700;
+      font-size: 15px;
+    }
+    @keyframes floatAnimation {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
 
-/* ONLY THIS MOVES */
-.brand-track{
-  display:flex;
-  width:fit-content;
-  animation: marquee 24s linear infinite;
-}
+    /* PARTNERS MARQUEE */
+    .brands-section {
+      background: #fff;
+      padding: 40px 0;
+      border-bottom: 1px solid #eef2f6;
+    }
+    .brand-slider {
+      overflow: hidden;
+      width: 100%;
+    }
+    .brand-track {
+      display: flex;
+      width: fit-content;
+      animation: marquee 20s linear infinite;
+    }
+    .brand-track span {
+      margin-right: 80px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #9fb3c8;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      transition: color 0.2s;
+      cursor: default;
+    }
+    .brand-track span:hover {
+      color: #0b72e7;
+    }
 
-/* BRAND STYLE */
-.brand-track span{
-  margin-right:60px;
-  font-size:16px;
-  font-weight:600;
-  color:#666;
-  white-space:nowrap;
-}
+    /* PRODUCT SUITE TAB INTERFACE */
+    .products-section {
+      background: #f8faff;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .section-header h2 {
+      font-size: 38px;
+      color: #0d1e3d;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+    .section-header p {
+      font-size: 16px;
+      color: #627d98;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .tab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .tab-btn {
+      padding: 12px 28px;
+      background: #fff;
+      border: 1.5px solid #e2e8f0;
+      color: #486581;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: #0b72e7;
+      color: #fff;
+      border-color: #0b72e7;
+      box-shadow: 0 4px 12px rgba(11,114,231,0.25);
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: 16px;
+      padding: 35px 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      transition: all 0.3s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(11,114,231,0.08);
+      border-color: #cbd5e1;
+    }
+    .prod-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(11, 114, 231, 0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: #0b72e7;
+    }
+    .prod-content h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #0d1e3d;
+      font-weight: 700;
+    }
+    .prod-content p {
+      font-size: 14px;
+      color: #627d98;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .prod-link {
+      color: #0b72e7;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .prod-link::after {
+      content: '→';
+      margin-left: 6px;
+      transition: transform 0.2s;
+    }
+    .product-card:hover .prod-link::after {
+      transform: translateX(4px);
+    }
 
-/* MOTION */
-@keyframes marquee{
-  from{
-    transform: translateX(0);
-  }
-  to{
-    transform: translateX(-50%);
-  }
-}
+    /* GLOBAL PAYMENTS BANNER */
+    .global-section {
+      background: linear-gradient(135deg,#0a1931,#0f3057);
+      color: #fff;
+      border-radius: 24px;
+      margin: 40px auto;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    .global-text {
+      padding: 60px;
+    }
+    .global-text h2 {
+      font-size: 36px;
+      margin-bottom: 18px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+    .global-text p {
+      color: #a0aec0;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+    .global-btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      background: #fff;
+      color: #0b72e7;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .global-btn:hover {
+      background: #f8faff;
+      transform: translateY(-1px);
+    }
+    .global-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-
-
-    /* GLOBAL PAYMENTS */
-    .global{max-width:1200px;margin:60px auto;background:linear-gradient(135deg,#7b0000,#c10000);border-radius:18px;display:grid;grid-template-columns:1fr 1fr;align-items:center;color:#fff;overflow:hidden}
-    .global .text{padding:50px}
-    .global h2{font-size:38px;margin-bottom:20px}
-    .global button{padding:12px 24px;border:none;border-radius:6px;background:#fff;color:#2b4cff;font-weight:600;cursor:pointer}
-    .global img{width:100%;height:100%;object-fit:cover}
-
-    /* FEATURES */
-    .features{max-width:1200px;margin:80px auto;padding:0 20px}
-    .features h2{text-align:center;font-size:36px;margin-bottom:50px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
-    .card{background:#fff;padding:30px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
-    .card h3{margin-bottom:12px}
-    .card p{color:#555;font-size:14px}
-
-    /* FOOTER */
-    footer{background:#0b1c2d;color:#fff;padding:50px 20px;margin-top:80px}
-    footer div{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px}
-    footer h4{margin-bottom:12px}
-    footer p,footer a{font-size:13px;color:#ccc;text-decoration:none;display:block;margin-bottom:6px}
-
-    /* Hover effect upgrades */
-    .card{background:#fff;padding:30px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.04);border:1px solid #eef2f9;transition:all 0.3s}
-    .card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(11,114,231,0.08);border-color:#d4e6fc}
+    /* INTERACTIVE PAYMENTS SIMULATOR */
+    .simulator-section {
+      background: #081125;
+      color: #fff;
+      border-top: 3px solid #0b72e7;
+    }
+    .sim-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .sim-text h2 {
+      font-size: 38px;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+    .sim-text p {
+      color: #a0aec0;
+      margin-bottom: 30px;
+    }
+    .live-counter-box {
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 14px 20px;
+      border-left: 4px solid #2ecc71;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 320px;
+    }
+    .live-counter-box span {
+      font-size: 14px;
+      color: #cbd5e0;
+    }
+    .live-counter-box strong {
+      font-size: 20px;
+      color: #2ecc71;
+      font-family: 'Outfit', sans-serif;
+    }
     
-    .hero .btn{padding:14px 28px;border-radius:8px;background:#0b72e7;color:#fff;border:none;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 6px 20px rgba(11,114,231,0.35);transition:all 0.2s}
-    .hero .btn:hover{background:#0a61c5;transform:translateY(-2px);box-shadow:0 8px 25px rgba(11,114,231,0.45)}
-    .hero img{width:100%;border-radius:14px;transition:transform 0.5s}
-    .hero img:hover{transform:scale(1.02)}
-
-    .global button{padding:12px 24px;border:none;border-radius:6px;background:#fff;color:#0b72e7;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:all 0.2s}
-    .global button:hover{background:#f5f8ff;transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.15)}
+    .sim-widget {
+      background: #fff;
+      color: #2c3e50;
+      border-radius: 16px;
+      padding: 35px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .sim-widget h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-family: 'Outfit', sans-serif;
+    }
+    .sim-widget p {
+      font-size: 13px;
+      color: #7f8c8d;
+      margin-bottom: 24px;
+    }
+    .demo-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .demo-item {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+    }
+    .demo-item.selected {
+      border-color: #0b72e7;
+      background: rgba(11,114,231,0.03);
+    }
+    .demo-item-label {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .demo-item-price {
+      font-weight: 700;
+      color: #0b72e7;
+      font-family: 'Outfit', sans-serif;
+    }
+    .btn-launch-sim {
+      width: 100%;
+      padding: 14px;
+      background: #0b72e7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(11,114,231,0.3);
+      transition: all 0.2s;
+    }
+    .btn-launch-sim:hover {
+      background: #0a61c5;
+      transform: translateY(-1px);
+    }
 
     /* PRICING PLANS */
     .pricing-plans {
@@ -120,14 +586,14 @@
       background: #fff;
       border: 1px solid #eef2f9;
       border-radius: 20px;
-      padding: 40px 30px;
+      padding: 45px 30px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.03);
       transition: all 0.3s;
       position: relative;
     }
     .price-card.featured {
-      border: 2px solid #0b72e7;
+      border: 2.5px solid #0b72e7;
       transform: scale(1.03);
       box-shadow: 0 15px 35px rgba(11,114,231,0.1);
     }
@@ -164,198 +630,963 @@
     .price-card.featured button { background: #0b72e7; color: #fff; border: none; }
     .price-card.featured button:hover { background: #0a61c5; box-shadow: 0 6px 18px rgba(11,114,231,0.35); }
 
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .global{grid-template-columns:1fr}
-      .price-card.featured { transform: none; }
-      .price-card.featured:hover { transform: translateY(-5px); }
+    /* FOOTER */
+    footer {
+      background: #081125;
+      color: #fff;
+      padding: 70px 20px 40px 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .footer-col h4 {
+      margin-bottom: 18px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7f8c8d;
+    }
+    .footer-col p {
+      font-size: 14px;
+      color: #a0aec0;
+      margin-bottom: 16px;
+      max-width: 260px;
+    }
+    .footer-col a {
+      font-size: 14px;
+      color: #cbd5e0;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: #0b72e7;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: #7f8c8d;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-socials a {
+      color: #7f8c8d;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer-socials a:hover {
+      color: #fff;
+    }
+
+    /* MOCK PAYMENTS CHECKOUT MODAL */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      color: #2c3e50;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .rzp-checkout {
+      width: 380px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+    .modal-overlay.open .rzp-checkout {
+      transform: scale(1);
+    }
+    .rzp-header {
+      background: #172a45;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    .rzp-merchant h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .rzp-merchant p {
+      font-size: 12px;
+      color: #a0aec0;
+    }
+    .rzp-amount {
+      text-align: right;
+    }
+    .rzp-amount h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #2ecc71;
+    }
+    .rzp-amount p {
+      font-size: 10px;
+      color: #a0aec0;
+    }
+    .rzp-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #7f8c8d;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      outline: none;
+    }
+    .rzp-close:hover {
+      color: #fff;
+    }
+
+    .rzp-body {
+      display: flex;
+      height: 320px;
+    }
+    .rzp-sidebar {
+      width: 110px;
+      background: #f8fafc;
+      border-right: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+    }
+    .rzp-tab-btn {
+      padding: 16px 12px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #e2e8f0;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .rzp-tab-btn.active {
+      background: #fff;
+      color: #0b72e7;
+      border-left: 3px solid #0b72e7;
+    }
+    
+    .rzp-content {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background: #fff;
+    }
+    .rzp-panel {
+      display: none;
+    }
+    .rzp-panel.active {
+      display: block;
+    }
+    .rzp-panel h4 {
+      font-size: 13px;
+      margin-bottom: 15px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    /* CARD FORM */
+    .rzp-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      outline: none;
+      font-size: 13px;
+    }
+    .rzp-input:focus {
+      border-color: #0b72e7;
+    }
+    .rzp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    
+    /* UPI INTERFACE */
+    .upi-qr-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    .upi-qr {
+      width: 120px;
+      height: 120px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+    
+    /* NETBANKING GRID */
+    .bank-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .bank-item {
+      padding: 8px;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+    .bank-item:hover {
+      border-color: #0b72e7;
+      background: #f8fafc;
+    }
+
+    /* FOOTER / ACTION */
+    .rzp-footer {
+      padding: 16px 20px;
+      border-top: 1px solid #e2e8f0;
+      background: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .btn-rzp-pay {
+      width: 100%;
+      padding: 12px;
+      background: #0b72e7;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(11,114,231,0.25);
+      transition: all 0.2s;
+    }
+    .btn-rzp-pay:hover {
+      background: #0a61c5;
+    }
+    .rzp-badge {
+      margin-top: 8px;
+      font-size: 10px;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+    }
+    .rzp-badge::before {
+      content: '⚡';
+      margin-right: 4px;
+    }
+
+    /* LOADING & SUCCESS STATES */
+    .state-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+      animation: fadeIn 0.2s ease;
+    }
+    .state-screen.active {
+      display: flex;
+    }
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #0b72e7;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: #e8f8f0;
+      color: #2ecc71;
+      font-size: 32px;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 900px){
+      .hero-container { grid-template-columns: 1fr; text-align: center; }
+      .hero-text p { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .badge-list { justify-content: center; }
+      .hero-graphic-container { margin-top: 30px; }
+      .float-card.top-right { right: 0; }
+      .float-card.bottom-left { left: 0; }
+      
+      .global-section { grid-template-columns: 1fr; }
+      .global-text { padding: 40px 20px; text-align: center; }
+      .sim-layout { grid-template-columns: 1fr; text-align: center; }
+      .live-counter-box { margin-left: auto; margin-right: auto; }
+      
+      .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="nav">
-    <div class="logo" onclick="window.location.href='index.html'">Razorpay</div>
-    <nav class="menu">
-      <a href="#payments">Payments</a>
-      <a href="#banking">Banking+</a>
-      <a href="#why-razorpay">Why Razorpay</a>
-      <a href="#developers">Developers</a>
-      <a href="#pricing">Pricing</a>
-    </nav>
-    <div class="actions">
-      <button class="login" onclick="window.location.href='login.html'">Login</button>
-      <button class="signup" onclick="window.location.href='signup.html'">Sign Up</button>
+  <!-- HEADER -->
+  <header>
+    <div class="nav">
+      <div class="logo" onclick="window.location.href='index.html'">Razorpay</div>
+      <nav class="menu">
+        <a href="#payments">Payments</a>
+        <a href="#banking">Banking+</a>
+        <a href="#why-razorpay">Why Razorpay</a>
+        <a href="#developers">Developers</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+        <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-text">
+        <h1>Powering the <span>financial ecosystem</span> for India's disruptors</h1>
+        <p>Accept payments, disburse payouts, and handle corporate card banking from a single developer-friendly gateway API.</p>
+        
+        <div class="hero-actions">
+          <button class="hero-btn" onclick="window.location.href='signup.html'">
+            Sign Up Free
+            <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+          </button>
+          <div class="badge-list">
+            <div class="badge-item">Instant Onboarding</div>
+            <div class="badge-item">Zero Setup Fees</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- HERO ILLUSTRATION WITH FLOATING OVERLAY CARDS -->
+      <div class="hero-graphic-container">
+        <img class="hero-main-img" src="hero.svg" alt="Razorpay Dashboard Mockup">
+        
+        <!-- Floating overlay card 1 -->
+        <div class="float-card top-right">
+          <div class="float-icon">✓</div>
+          <div class="float-info">
+            <h5>Payment Received</h5>
+            <p>₹12,500.00</p>
+          </div>
+        </div>
+
+        <!-- Floating overlay card 2 -->
+        <div class="float-card bottom-left">
+          <div class="float-icon">⚡</div>
+          <div class="float-info">
+            <h5>API Status</h5>
+            <p>99.99% Uptime</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO TICKER / PARTNERS -->
+  <section class="brands-section">
+    <div class="brand-slider container">
+      <div class="brand-track">
+        <span>OLA CABS</span><span>ZOMATO</span><span>BLINKIT</span><span>ZEPTO</span><span>SWIGGY</span><span>LENSKART</span><span>NYKAA</span><span>MEESHO</span><span>FLIPKART</span>
+        <span>OLA CABS</span><span>ZOMATO</span><span>BLINKIT</span><span>ZEPTO</span><span>SWIGGY</span><span>LENSKART</span><span>NYKAA</span><span>MEESHO</span><span>FLIPKART</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SUITES TABS -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Powering the payment ecosystem</h2>
+        <p>Explore the complete suites of tools tailored to support startups, online businesses, and merchant platforms.</p>
+      </div>
+
+      <!-- TABS SELECTOR -->
+      <div class="tab-nav">
+        <button class="tab-btn active" id="tabBtnPayments" onclick="switchSuiteTab('payments')">Payments Suite</button>
+        <button class="tab-btn" id="tabBtnBanking" onclick="switchSuiteTab('banking')">Banking Suite (RazorpayX)</button>
+      </div>
+
+      <!-- TAB 1: PAYMENTS PANEL -->
+      <div class="tab-panel active" id="panelPayments">
+        <div class="product-grid">
+          <div class="product-card" id="payments">
+            <div>
+              <div class="prod-icon">💳</div>
+              <div class="prod-content">
+                <h3>Payment Gateway</h3>
+                <p>Accept cards, UPI, netbanking, and 100+ local payment modes with high transaction success rates.</p>
+              </div>
+            </div>
+            <a href="signup.html" class="prod-link">Know More</a>
+          </div>
+
+          <div class="product-card">
+            <div>
+              <div class="prod-icon">🔗</div>
+              <div class="prod-content">
+                <h3>Payment Links</h3>
+                <p>Create and share payment links instantly via SMS, Email, or WhatsApp to collect wire dues.</p>
+              </div>
+            </div>
+            <a href="#simulator" class="prod-link">Try Live Demo</a>
+          </div>
+
+          <div class="product-card">
+            <div>
+              <div class="prod-icon">🔄</div>
+              <div class="prod-content">
+                <h3>Subscriptions</h3>
+                <p>Automate recurring cards billing cycles with smart retries, email alerts, and subscription analytics.</p>
+              </div>
+            </div>
+            <a href="signup.html" class="prod-link">Know More</a>
+          </div>
+
+          <div class="product-card">
+            <div>
+              <div class="prod-icon">🤖</div>
+              <div class="prod-content">
+                <h3>Smart Collect</h3>
+                <p>Reconcile incoming wire payments automatically by generating virtual customer accounts.</p>
+              </div>
+            </div>
+            <a href="signup.html" class="prod-link">Know More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: BANKING PANEL -->
+      <div class="tab-panel" id="panelBanking">
+        <div class="product-grid">
+          <div class="product-card" id="banking">
+            <div>
+              <div class="prod-icon">🏦</div>
+              <div class="prod-content">
+                <h3>Current Accounts</h3>
+                <p>Open fully integrated corporate accounts to manage payout disbursements and cash flow dashboards.</p>
+              </div>
+            </div>
+            <a href="signup.html" class="prod-link">Know More</a>
+          </div>
+
+          <div class="product-card">
+            <div>
+              <div class="prod-icon">💸</div>
+              <div class="prod-content">
+                <h3>Payouts</h3>
+                <p>Disburse vendor settlements, customer refunds, and employee payouts instantly via IMPS/NEFT 24/7.</p>
+              </div>
+            </div>
+            <a href="signup.html" class="prod-link">Know More</a>
+          </div>
+
+          <div class="product-card">
+            <div>
+              <div class="prod-icon">📅</div>
+              <div class="prod-content">
+                <h3>Payroll</h3>
+                <p>Automate monthly salary processing, professional tax deposits, and payroll compliances.</p>
+              </div>
+            </div>
+            <a href="signup.html" class="prod-link">Know More</a>
+          </div>
+
+          <div class="product-card">
+            <div>
+              <div class="prod-icon">🎫</div>
+              <div class="prod-content">
+                <h3>Corporate Cards</h3>
+                <p>Get pre-approved business credit cards to control server hosting subscriptions and marketing bills.</p>
+              </div>
+            </div>
+            <a href="signup.html" class="prod-link">Know More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GLOBAL CURRENCY SECTION -->
+  <section style="background: #fff;">
+    <div class="container">
+      <div class="global-section">
+        <div class="global-text">
+          <h2>Accept payments in 130+ currencies. Go global today!</h2>
+          <p>Settle international payments directly into your local bank account without complex currency conversion filings.</p>
+          <button class="global-btn" onclick="window.location.href='signup.html'">Accept International Payments</button>
+        </div>
+        <img class="global-img" src="global-payments.svg" alt="Global Currencies Illustration">
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE CHECKOUT SIMULATOR WIDGET -->
+  <section class="simulator-section" id="simulator">
+    <div class="container sim-layout">
+      <div class="sim-text">
+        <h2>Experience Checkout in Sandbox Mode</h2>
+        <p>Choose a demo item from the card list and launch our mock Checkout popup to simulate UPI, Card, or Netbanking transactions. No registration or credit details required.</p>
+        <div class="live-counter-box">
+          <span>Total Sandbox Test Payments:</span>
+          <strong id="simCounterText">0</strong>
+        </div>
+      </div>
+
+      <div class="sim-widget">
+        <h3>Launch Test Checkout</h3>
+        <p>Select an item to simulate a transaction amount</p>
+        
+        <div class="demo-items-list">
+          <div class="demo-item selected" onclick="selectDemoItem(this, 50.00, 'Demo Coffee')">
+            <span class="demo-item-label">☕ Cup of Coffee</span>
+            <span class="demo-item-price">₹50.00</span>
+          </div>
+          <div class="demo-item" onclick="selectDemoItem(this, 299.00, 'Developer Guide Book')">
+            <span class="demo-item-label">📘 Developer Guide Book</span>
+            <span class="demo-item-price">₹299.00</span>
+          </div>
+          <div class="demo-item" onclick="selectDemoItem(this, 999.00, 'Premium SaaS Pass')">
+            <span class="demo-item-label">🚀 Premium SaaS Pass</span>
+            <span class="demo-item-price">₹999.00</span>
+          </div>
+        </div>
+
+        <button class="btn-launch-sim" onclick="triggerSimulateCheckout()">Launch Sandbox Checkout</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="pricing" class="container">
+    <div class="section-header">
+      <h2>Simple, Transparent Pricing</h2>
+      <p>Flexible plan tiers built to accommodate startups, growing business platforms, and enterprise volume requirements.</p>
+    </div>
+    
+    <div class="pricing-plans">
+      <div class="price-card">
+        <h3>Standard</h3>
+        <div class="price">2.0%<span>/ transaction</span></div>
+        <p>Best for small startups and individual developers just getting started.</p>
+        <ul>
+          <li>Accept Cards, UPI, Netbanking</li>
+          <li>Standard settlements (T+3 days)</li>
+          <li>Standard dashboard & analytics</li>
+          <li>API sandbox testing mode</li>
+        </ul>
+        <button onclick="window.location.href='signup.html'">Sign Up Free</button>
+      </div>
+      <div class="price-card featured">
+        <h3>Pro</h3>
+        <div class="price">2.4%<span>/ transaction</span></div>
+        <p>Perfect for growing businesses needing custom integrations and faster payouts.</p>
+        <ul>
+          <li>All Standard features included</li>
+          <li>Instant settlements (T+0 available)</li>
+          <li>24/7 Priority Chat & Email Support</li>
+          <li>Custom checkout page branding</li>
+        </ul>
+        <button onclick="window.location.href='signup.html'">Get Started</button>
+      </div>
+      <div class="price-card">
+        <h3>Enterprise</h3>
+        <div class="price">Custom<span> pricing</span></div>
+        <p>For large corporations, platforms, and high-volume merchant networks.</p>
+        <ul>
+          <li>Tailored volume-based discount fees</li>
+          <li>Dedicated account success manager</li>
+          <li>99.99% API Uptime SLA guarantee</li>
+          <li>Multi-tier merchant payouts routing</li>
+        </ul>
+        <button onclick="window.location.href='signup.html'">Contact Sales</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="products-section" id="why-razorpay">
+    <div class="container">
+      <div class="section-header">
+        <h2>Trusted by 10M+ Businesses</h2>
+        <p>See why leading corporate startups and developers choose Razorpay to power their digital payment layers.</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <p style="font-style: italic; color: #486581; margin-bottom: 20px;">"Razorpay helped us launch subscriptions and automated refunds in under 48 hours. The sandbox integration is completely flawless."</p>
+          <strong style="font-family:'Outfit'; font-size: 15px;">- Startup Founder</strong>
+        </div>
+        <div class="product-card">
+          <p style="font-style: italic; color: #486581; margin-bottom: 20px;">"The payment success rates are consistently higher than other platforms. Having UPI QR code scanning built-in is highly efficient."</p>
+          <strong style="font-family:'Outfit'; font-size: 15px;">- E-commerce Merchant</strong>
+        </div>
+        <div class="product-card" id="developers">
+          <p style="font-style: italic; color: #486581; margin-bottom: 20px;">"API documentation is clean and developer-friendly. Ready-to-use SDK wrappers for JS, Python, and React make setups extremely fast."</p>
+          <strong style="font-family:'Outfit'; font-size: 15px;">- Tech Lead</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:20px; color: #0b72e7;">Razorpay</div>
+        <p>Razorpay is India’s leading payments solution company, helping businesses accept, process, and disburse digital payments with ease.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Payments Product</h4>
+        <a href="#payments">Payment Gateway</a>
+        <a href="#payments">Payment Links</a>
+        <a href="#payments">Subscriptions</a>
+        <a href="#payments">Smart Collect</a>
+      </div>
+      <div class="footer-col">
+        <h4>RazorpayX Banking</h4>
+        <a href="#banking">Current Accounts</a>
+        <a href="#banking">Payouts Core</a>
+        <a href="#banking">Payroll Software</a>
+        <a href="#banking">Corporate Cards</a>
+      </div>
+      <div class="footer-col">
+        <h4>Developers</h4>
+        <a href="#developers">API Docs</a>
+        <a href="#developers">SDK Library</a>
+        <a href="#developers">Webhook Guides</a>
+        <a href="#developers">Sandbox Setup</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#why-razorpay">About Us</a>
+        <a href="signup.html">Careers</a>
+        <a href="login.html">Contact Us</a>
+        <a href="#pricing">Plan Pricing</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="footer-copy">
+        © 2026 Razorpay Clone. Created for learning and demonstration purposes.
+      </div>
+      <div class="footer-socials">
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHECKOUT MODAL OVERLAY -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="rzp-checkout">
+      <!-- HEADER -->
+      <div class="rzp-header">
+        <button class="rzp-close" onclick="closeCheckoutModal()">✕</button>
+        <div class="rzp-merchant">
+          <h4>Razorpay Sandbox</h4>
+          <p id="checkoutDesc">Demo Payment</p>
+        </div>
+        <div class="rzp-amount">
+          <h3 id="checkoutAmount">₹50.00</h3>
+          <p>Sandbox Mode</p>
+        </div>
+      </div>
+
+      <!-- BODY SPLIT -->
+      <div class="rzp-body">
+        <!-- TABS -->
+        <div class="rzp-sidebar">
+          <button class="rzp-tab-btn active" onclick="switchCheckoutTab('card')">Card</button>
+          <button class="rzp-tab-btn" onclick="switchCheckoutTab('upi')">UPI / QR</button>
+          <button class="rzp-tab-btn" onclick="switchCheckoutTab('netbanking')">Netbanking</button>
+        </div>
+
+        <!-- CONTENT PANEL -->
+        <div class="rzp-content">
+          <!-- CARD PANEL -->
+          <div class="rzp-panel active" id="panel-card">
+            <h4>Card Details</h4>
+            <input type="text" class="rzp-input" id="cardNo" placeholder="Card Number (4111 1111 1111 1111)" maxlength="19">
+            <div class="rzp-grid">
+              <input type="text" class="rzp-input" id="cardExpiry" placeholder="Expiry (MM/YY)" maxlength="5">
+              <input type="password" class="rzp-input" id="cardCVV" placeholder="CVV" maxlength="3">
+            </div>
+            <input type="text" class="rzp-input" id="cardName" placeholder="Cardholder Name">
+          </div>
+
+          <!-- UPI PANEL -->
+          <div class="rzp-panel" id="panel-upi">
+            <h4>UPI Payment</h4>
+            <div class="upi-qr-wrapper">
+              <div class="upi-qr">
+                <svg viewBox="0 0 100 100" width="80" height="80">
+                  <path d="M0 0h30v30h-30zm40 0h20v20h-20zm30 0h30v30h-30zM0 40h20v20h-20zm80 0h20v20h-20zM0 70h30v30h-30zm50 0h10v10h-10zm10 10h10v10h-10zm10-10h10v10h-10zm20 10h10v10h-10z" fill="#081125"/>
+                  <rect x="5" y="5" width="20" height="20" fill="none" stroke="#0b72e7" stroke-width="2"/>
+                  <rect x="75" y="5" width="20" height="20" fill="none" stroke="#0b72e7" stroke-width="2"/>
+                  <rect x="5" y="75" width="20" height="20" fill="none" stroke="#0b72e7" stroke-width="2"/>
+                </svg>
+                <div style="font-size: 8px; color: #7f8c8d; margin-top: 4px;">SCAN MOCK QR</div>
+              </div>
+            </div>
+            <div style="text-align: center; margin: 5px 0; font-size: 11px; color: #94a3b8;">OR ENTER UPI ID</div>
+            <input type="text" class="rzp-input" id="upiId" placeholder="e.g. name@upi">
+          </div>
+
+          <!-- NETBANKING PANEL -->
+          <div class="rzp-panel" id="panel-netbanking">
+            <h4>Popular Banks</h4>
+            <div class="bank-grid">
+              <div class="bank-item" onclick="selectBank('SBI')">SBI</div>
+              <div class="bank-item" onclick="selectBank('HDFC')">HDFC</div>
+              <div class="bank-item" onclick="selectBank('ICICI')">ICICI</div>
+              <div class="bank-item" onclick="selectBank('AXIS')">Axis Bank</div>
+            </div>
+            <input type="hidden" id="selectedBank" value="">
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="rzp-footer">
+        <button class="btn-rzp-pay" onclick="simulateCheckoutPayment()">Pay Now</button>
+        <div class="rzp-badge">Secured by Razorpay Sandbox</div>
+      </div>
+
+      <!-- STATE SCREENS -->
+      <!-- LOADING SCREEN -->
+      <div class="state-screen" id="checkoutLoading">
+        <div class="spinner"></div>
+        <h4 style="font-family:'Outfit'; font-weight:700;">Processing Sandbox Payment...</h4>
+      </div>
+
+      <!-- SUCCESS SCREEN -->
+      <div class="state-screen" id="checkoutSuccess">
+        <div class="success-icon">✓</div>
+        <h3 style="font-family:'Outfit'; font-weight:700; color:#2ecc71;">Payment Successful!</h3>
+        <p style="font-size:11px; color:#94a3b8; margin-top:10px;">Closing window...</p>
+      </div>
     </div>
   </div>
-</header>
 
-<section class="hero">
-  <div>
-    <h1><span>Advanced Payment Solutions</span><br>for India's boldest disruptors</h1>
-    <p>100+ payment methods | Easy integration | Powerful dashboard</p>
-    <button class="btn" onclick="window.location.href='signup.html'">Sign Up Now</button>
-  </div>
- <img src="hero.svg" alt="Hero Illustration">
+  <script>
+    // Tab switching for Product Suites
+    function switchSuiteTab(suite) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
 
-</section>
+      if (suite === 'payments') {
+        document.getElementById('tabBtnPayments').classList.add('active');
+        document.getElementById('panelPayments').classList.add('active');
+      } else {
+        document.getElementById('tabBtnBanking').classList.add('active');
+        document.getElementById('panelBanking').classList.add('active');
+      }
+    }
 
-<section class="brands">
-  <div class="brand-slider">
-    <div class="brand-track">
-      <span>OLA</span><span>Zomato</span><span>Blinkit</span><span>Zepto</span><span>Swiggy</span><span>Lenskart</span><span>Nykaa</span>
-      <span>OLA</span><span>Zomato</span><span>Blinkit</span><span>Zepto</span><span>Swiggy</span><span>Lenskart</span><span>Nykaa</span>
-    </div>
-  </div>
-</section>
+    // SIMULATOR SELECTION LOGIC
+    let selectedAmount = 50.00;
+    let selectedDesc = "Demo Coffee";
+    let mockPaymentsCounter = 0;
 
-<section class="global">
-  <div class="text">
-    <h2>Accept payments in 130+ currencies.<br>Go global today!</h2>
-    <button onclick="window.location.href='signup.html'">Accept International Payments</button>
-  </div>
-  <img src="global-payments.svg" alt="Global Payments">
+    function selectDemoItem(element, amount, description) {
+      document.querySelectorAll('.demo-item').forEach(item => item.classList.remove('selected'));
+      element.classList.add('selected');
+      selectedAmount = amount;
+      selectedDesc = description;
+    }
 
-</section>
+    // CHECKOUT MODAL LOGIC FOR HOMEPAGE SIMULATOR
+    let activeCheckoutMethod = "card";
 
-<section class="features" id="why-razorpay">
-  <h2>Why Razorpay</h2>
-  <div class="grid">
-    <div class="card"><h3>Fast Onboarding</h3><p>Get started in minutes with simple KYC.</p></div>
-    <div class="card"><h3>Secure Payments</h3><p>Enterprise-grade security and compliance.</p></div>
-    <div class="card"><h3>Developer Friendly</h3><p>Clean APIs and detailed documentation.</p></div>
-    <div class="card"><h3>Global Reach</h3><p>Accept payments worldwide with ease.</p></div>
-  </div>
-</section>
+    function triggerSimulateCheckout() {
+      document.getElementById("checkoutAmount").innerText = "₹" + selectedAmount.toFixed(2);
+      document.getElementById("checkoutDesc").innerText = selectedDesc;
+      
+      // Reset checkout panels & tabs
+      switchCheckoutTab("card");
+      document.getElementById("cardNo").value = "";
+      document.getElementById("cardExpiry").value = "";
+      document.getElementById("cardCVV").value = "";
+      document.getElementById("cardName").value = "";
+      document.getElementById("upiId").value = "";
+      document.getElementById("selectedBank").value = "";
+      document.querySelectorAll(".bank-item").forEach(item => item.style.borderColor = "#e2e8f0");
 
-<!-- PAYMENT PRODUCTS -->
-<section class="features" id="payments">
-  <h2>Explore Our Payment Suite</h2>
-  <div class="grid">
-    <div class="card"><h3>Payment Gateway</h3><p>Accept cards, UPI, wallets and netbanking with high success rates.</p></div>
-    <div class="card"><h3>Subscription Billing</h3><p>Automate recurring payments with smart retries and analytics.</p></div>
-    <div class="card"><h3>Smart Collect</h3><p>Track and reconcile incoming payments easily.</p></div>
-    <div class="card"><h3>Route</h3><p>Split settlements instantly between vendors and partners.</p></div>
-  </div>
-</section>
+      // Reset Screens
+      document.getElementById("checkoutLoading").classList.remove("active");
+      document.getElementById("checkoutSuccess").classList.remove("active");
 
-<!-- BANKING SECTION -->
-<section class="global" id="banking" style="background:linear-gradient(135deg,#0b1c2d,#133a63)">
-  <div class="text">
-    <h2>Banking for Modern Businesses</h2>
-    <p style="margin-bottom:20px">Open current accounts, manage payouts, and control cash flow from one dashboard.</p>
-    <button onclick="window.location.href='signup.html'">Explore Banking+</button>
-  </div>
-  <img src="global-payments.svg" alt="banking">
-</section>
+      // Open Modal
+      document.getElementById("checkoutModal").classList.add("open");
+    }
 
-<!-- DEVELOPER SECTION -->
-<section class="features" id="developers">
-  <h2>Built for Developers</h2>
-  <div class="grid">
-    <div class="card"><h3>Clean APIs</h3><p>Simple REST APIs with detailed documentation.</p></div>
-    <div class="card"><h3>SDKs</h3><p>Ready-to-use SDKs for web and mobile platforms.</p></div>
-    <div class="card"><h3>Webhooks</h3><p>Real-time payment status updates.</p></div>
-    <div class="card"><h3>Sandbox</h3><p>Test integrations safely before going live.</p></div>
-  </div>
-</section>
+    function closeCheckoutModal() {
+      document.getElementById("checkoutModal").classList.remove("open");
+    }
 
-<!-- PRICING SECTION -->
-<section class="features" id="pricing">
-  <h2 style="text-align:center;">Simple, Transparent Pricing</h2>
-  <p style="text-align:center; color:#555; max-width:600px; margin:-35px auto 40px auto; font-size:16px;">Get started with industry-leading rates and robust payment infrastructure.</p>
-  <div class="pricing-plans">
-    <div class="price-card">
-      <h3>Standard</h3>
-      <div class="price">2.0%<span>/ transaction</span></div>
-      <p>Best for small startups and individual developers just getting started.</p>
-      <ul>
-        <li>Accept Cards, UPI, Netbanking</li>
-        <li>Standard settlements (T+3 days)</li>
-        <li>Standard dashboard & analytics</li>
-        <li>API sandbox testing mode</li>
-      </ul>
-      <button onclick="window.location.href='signup.html'">Sign Up Free</button>
-    </div>
-    <div class="price-card featured">
-      <h3>Pro</h3>
-      <div class="price">2.4%<span>/ transaction</span></div>
-      <p>Perfect for growing businesses needing custom integrations and faster payouts.</p>
-      <ul>
-        <li>All Standard features included</li>
-        <li>Instant settlements (T+0 available)</li>
-        <li>24/7 Priority Chat & Email Support</li>
-        <li>Custom checkout page branding</li>
-      </ul>
-      <button onclick="window.location.href='signup.html'">Get Started</button>
-    </div>
-    <div class="price-card">
-      <h3>Enterprise</h3>
-      <div class="price">Custom<span> pricing</span></div>
-      <p>For large corporations, platforms, and high-volume merchant networks.</p>
-      <ul>
-        <li>Tailored volume-based discount fees</li>
-        <li>Dedicated account success manager</li>
-        <li>99.99% API Uptime SLA guarantee</li>
-        <li>Multi-tier merchant payouts routing</li>
-      </ul>
-      <button onclick="window.location.href='signup.html'">Contact Sales</button>
-    </div>
-  </div>
-</section>
+    function switchCheckoutTab(method) {
+      activeCheckoutMethod = method;
+      
+      // Update Tab CSS
+      document.querySelectorAll(".rzp-tab-btn").forEach(btn => {
+        btn.classList.remove("active");
+        if(btn.innerText.toLowerCase().includes(method)) {
+          btn.classList.add("active");
+        }
+      });
 
-<!-- TESTIMONIALS -->
-<section class="features">
-  <h2>Trusted by 10M+ Businesses</h2>
-  <div class="grid">
-    <div class="card"><p>“Razorpay helped us scale payments without friction.”</p><strong>- Startup Founder</strong></div>
-    <div class="card"><p>“Fast onboarding and excellent support.”</p><strong>- E-commerce Brand</strong></div>
-    <div class="card"><p>“Best developer experience we’ve seen.”</p><strong>- Tech Lead</strong></div>
-  </div>
-</section>
+      // Update Panel View
+      document.querySelectorAll(".rzp-panel").forEach(panel => panel.classList.remove("active"));
+      document.getElementById("panel-" + method).classList.add("active");
+    }
 
-<!-- CTA -->
-<section class="global" style="margin-bottom:80px">
-  <div class="text">
-    <h2>Start Accepting Payments Today</h2>
-    <p style="margin-bottom:20px">Create an account and go live in minutes.</p>
-    <button onclick="window.location.href='signup.html'">Get Started</button>
-  </div>
-  <img src="hero.svg" alt="cta">
-</section>
+    function selectBank(bankName) {
+      document.getElementById("selectedBank").value = bankName;
+      document.querySelectorAll(".bank-item").forEach(item => {
+        item.style.borderColor = "#e2e8f0";
+        if(item.innerText.includes(bankName)) {
+          item.style.borderColor = "#0b72e7";
+        }
+      });
+    }
 
-<footer>
-  <div>
-    <div>
-      <h4>Razorpay</h4>
-      <p>India's leading payments platform.</p>
-    </div>
-    <div>
-      <h4>Products</h4>
-      <a href="#">Payments</a><a href="#">Banking+</a><a href="#">Payroll</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a>
-    </div>
-  </div>
-</footer>
+    // Format inputs
+    document.getElementById("cardNo").addEventListener("input", function(e) {
+      let val = this.value.replace(/\D/g, "");
+      let formatted = "";
+      for (let i = 0; i < val.length; i++) {
+        if (i > 0 && i % 4 === 0) formatted += " ";
+        formatted += val[i];
+      }
+      this.value = formatted;
+    });
 
-<script>
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth'
-        });
+    document.getElementById("cardExpiry").addEventListener("input", function(e) {
+      let val = this.value.replace(/\D/g, "");
+      if (val.length >= 2) {
+        this.value = val.substring(0, 2) + "/" + val.substring(2, 4);
+      } else {
+        this.value = val;
       }
     });
-  });
-</script>
+
+    function simulateCheckoutPayment() {
+      // Input validation
+      if (activeCheckoutMethod === "card") {
+        const cardNo = document.getElementById("cardNo").value.trim();
+        const expiry = document.getElementById("cardExpiry").value.trim();
+        const cvv = document.getElementById("cardCVV").value.trim();
+        if (cardNo.length < 19 || expiry.length < 5 || cvv.length < 3) {
+          alert("Please fill in card details correctly.");
+          return;
+        }
+      } else if (activeCheckoutMethod === "upi") {
+        const upiId = document.getElementById("upiId").value.trim();
+        if (upiId === "") {
+          alert("Please enter a valid UPI ID.");
+          return;
+        }
+      } else if (activeCheckoutMethod === "netbanking") {
+        const bank = document.getElementById("selectedBank").value;
+        if (bank === "") {
+          alert("Please choose a bank from the options.");
+          return;
+        }
+      }
+
+      // Show loader
+      document.getElementById("checkoutLoading").classList.add("active");
+
+      setTimeout(() => {
+        document.getElementById("checkoutLoading").classList.remove("active");
+        document.getElementById("checkoutSuccess").classList.add("active");
+
+        mockPaymentsCounter += 1;
+        document.getElementById("simCounterText").innerText = mockPaymentsCounter;
+
+        setTimeout(() => {
+          closeCheckoutModal();
+        }, 1500);
+
+      }, 1500);
+    }
+  </script>
 
 </body>
 </html>
